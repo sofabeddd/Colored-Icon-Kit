@@ -1,0 +1,14 @@
+{
+	"geode": "2.0.0-beta.20",
+	"gd": {
+		"win": "2.204",
+		"android": "*",
+		"mac": "2.200"
+	},
+	"version": "v1.0.0",
+	"id": "sofabeddd.colored_icon_kit",
+	"name": "Colored Icon Kit",
+	"developer": "sofabeddd",
+	"repository": "https://github.com/sofabeddd/Geometry-Dash",
+	"description": "Colors all the icons in the garage, shops, achievements, etc. with your player colors."
+}
