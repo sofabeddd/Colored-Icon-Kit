@@ -3,7 +3,6 @@
 	"gd": {
 		"win": "2.204",
 		"android": "*",
-		"mac": "2.200"
 	},
 	"version": "v1.0.0",
 	"id": "sofabeddd.colored_icon_kit",
