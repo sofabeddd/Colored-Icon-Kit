@@ -1,13 +1,13 @@
 {
-	"geode": "2.0.0-beta.20",
+	"description": "Colors all the icons in the garage, shops, achievements, etc. with your player colors.",
+	"developer": "sofabeddd",
 	"gd": {
-		"win": "2.204",
-		"android": "*",
+		"android": "2.205",
+		"win": "2.204"
 	},
-	"version": "v1.0.0",
+	"geode": "2.0.0-beta.20",
 	"id": "sofabeddd.colored_icon_kit",
 	"name": "Colored Icon Kit",
-	"developer": "sofabeddd",
 	"repository": "https://github.com/sofabeddd/Colored-Icon-Kit",
-	"description": "Colors all the icons in the garage, shops, achievements, etc. with your player colors."
+	"version": "v1.0.1"
 }
