@@ -12,8 +12,8 @@ using namespace geode::prelude;
 bool override_glow = true;
 
 class $modify(CharacterColorPage) {
-    void onClose(CCObject* sender) {
-        CharacterColorPage::keyMenuClicked();
+    void updateIconColors() {
+        CharacterColorPage::updateIconColors();
 
         auto garage_layer = dynamic_cast<GJGarageLayer*>(CCDirector::sharedDirector()->getRunningScene()->getChildByID("GJGarageLayer"));
 
