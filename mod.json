@@ -1,6 +1,13 @@
 {
 	"description": "Colors all the icons in the garage, shops, achievements, etc. with your player colors.",
 	"developer": "sofabeddd",
+	"dependencies": [
+		{
+			"id": "geode.node-ids",
+			"importance": "required",
+			"version": ">=v1.5.1"
+		}
+	],
 	"gd": {
 		"android": "2.205",
 		"win": "2.204"
@@ -9,5 +16,5 @@
 	"id": "sofabeddd.colored_icon_kit",
 	"name": "Colored Icon Kit",
 	"repository": "https://github.com/sofabeddd/Colored-Icon-Kit",
-	"version": "v1.0.2"
+	"version": "v1.0.3"
 }
