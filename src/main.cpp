@@ -11,6 +11,37 @@ using namespace geode::prelude;
 
 bool override_glow = true;
 
+class $modify(CharacterColorPage) {
+    void onClose(CCObject* sender) {
+        CharacterColorPage::keyMenuClicked();
+
+        auto garage_layer = dynamic_cast<GJGarageLayer*>(CCDirector::sharedDirector()->getRunningScene()->getChildByID("GJGarageLayer"));
+
+        auto prev_button = garage_layer->getChildByID("prev-page-menu")->getChildByID("prev-button");
+        auto next_button = garage_layer->getChildByID("next-page-menu")->getChildByID("next-button");
+
+        garage_layer->onArrow(prev_button);
+        garage_layer->onArrow(next_button);
+    }
+};
+
+class $modify(GJItemIcon) {
+    static GJItemIcon* create(UnlockType p0, int p1, cocos2d::ccColor3B p2, cocos2d::ccColor3B p3, bool p4, bool p5, bool p6, cocos2d::ccColor3B p7) {
+        auto game_manager = GameManager::get();
+        return GJItemIcon::create(p0, p1, game_manager->colorForIdx(game_manager->getPlayerColor()), game_manager->colorForIdx(game_manager->getPlayerColor2()), p4, p5, p6, p7);
+
+    }
+};
+
+class $modify(LeaderboardsLayer) {
+    bool init(LeaderboardState p0) {
+        if (!LeaderboardsLayer::init(p0)) return false;
+
+        override_glow = false;
+        return true;
+    }
+};
+
 class $modify(ProfilePage) {
     bool init(int accountID, bool ownProfile) {
         if (!ProfilePage::init(accountID, ownProfile)) return false;
@@ -22,17 +53,22 @@ class $modify(ProfilePage) {
     void onClose(CCObject* sender) {
         ProfilePage::onClose(sender);
 
-        if (!CCDirector::sharedDirector()->getRunningScene()->getChildByID("LeaderboardsLayer") || !CCDirector::sharedDirector()->getRunningScene()->getChildByID("LevelInfoLayer")) override_glow = true;
+        auto running_scene = CCDirector::sharedDirector()->getRunningScene();
+        if (!running_scene->getChildByID("LeaderboardsLayer") || !running_scene->getChildByID("LevelInfoLayer")) override_glow = true;
     }
-};
 
-class $modify(LeaderboardsLayer) {
-    bool init(LeaderboardState p0) {
-        if (!LeaderboardsLayer::init(p0)) return false;
+    void onFriends(CCObject* sender) {
+        ProfilePage::onFriends(sender);
 
         override_glow = false;
-        return true;
     }
+
+    void onRequests(CCObject* sender) {
+        ProfilePage::onRequests(sender);
+
+        override_glow = false;
+    }
+
 };
 
 class $modify(SimplePlayer) {
@@ -46,27 +82,5 @@ class $modify(SimplePlayer) {
         }
 
         return true;
-    }
-};
-
-class $modify(GJItemIcon) {
-    static GJItemIcon* create(UnlockType p0, int p1, cocos2d::ccColor3B p2, cocos2d::ccColor3B p3, bool p4, bool p5, bool p6, cocos2d::ccColor3B p7) {
-        auto game_manager = GameManager::get();
-        return GJItemIcon::create(p0, p1, game_manager->colorForIdx(game_manager->getPlayerColor()), game_manager->colorForIdx(game_manager->getPlayerColor2()), p4, p5, p6, p7);
-
-    }
-};
-
-class $modify(CharacterColorPage) {
-    void onClose(CCObject* sender) {
-        CharacterColorPage::onClose(sender);
-
-        auto garage_layer = dynamic_cast<GJGarageLayer*>(CCDirector::sharedDirector()->getRunningScene()->getChildByID("GJGarageLayer"));
-
-        auto prev_button = garage_layer->getChildByID("prev-page-menu")->getChildByID("prev-button");
-        auto next_button = garage_layer->getChildByID("next-page-menu")->getChildByID("next-button");
-
-        garage_layer->onArrow(prev_button);
-        garage_layer->onArrow(next_button);
     }
 };
