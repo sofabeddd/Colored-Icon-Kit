@@ -14,5 +14,9 @@
 - Fixed bug that rendered icons in your friends list and friend requests list with your glow color.
 - Fixed bug that caused the colors to not update properly when pressing escape to leave the menu.
 
-### Additional Info
+## v1.0.4
+- Hopefully finally fixed the bug that renders your own glow when it shouldn't.
+- Undid the fix for pressing escape in the icon kit since it broke whenever you tried to select colors mutiple times.
+
+## Additional Info
 *please submit any bugs you may find to the issues tab in the github repository or directly to me on discord @sofabeddd, thanks :)*
