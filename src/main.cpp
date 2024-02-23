@@ -3,8 +3,10 @@
 #include <Geode/modify/CharacterColorPage.hpp>
 #include <Geode/modify/GJGarageLayer.hpp>
 #include <Geode/modify/GJItemIcon.hpp>
+#include <Geode/modify/InfoLayer.hpp>
 #include <Geode/modify/LeaderboardsLayer.hpp>
 #include <Geode/modify/LevelInfoLayer.hpp>
+#include <Geode/modify/LevelLeaderboard.hpp>
 #include <Geode/modify/MenuLayer.hpp>
 #include <Geode/modify/ProfilePage.hpp>
 #include <Geode/modify/SimplePlayer.hpp>
@@ -44,6 +46,20 @@ class $modify(GJItemIcon) {
     }
 };
 
+class $modify(InfoLayer) {
+    bool init(GJGameLevel* p0, GJUserScore* p1, GJLevelList* p2) {
+        if (!InfoLayer::init(p0, p1, p2)) return false;
+
+        override_glow = false;
+        return true;
+    }
+
+    void onClose(CCObject* sender) {
+        InfoLayer::onClose(sender);
+
+        override_glow = true;
+    }
+};
 
 class $modify(LeaderboardsLayer) {
     bool init(LeaderboardState p0) {
@@ -66,6 +82,21 @@ class $modify(LevelInfoLayer) {
         LevelInfoLayer::onBack(sender);
 
         override_glow = false;
+    }
+};
+
+class $modify(LevelLeaderboard) {
+    bool init(GJGameLevel* p0, LevelLeaderboardType p1, LevelLeaderboardMode p2) {
+        if (!LevelLeaderboard::init(p0, p1, p2)) return false;
+
+        override_glow = false;
+        return true;
+    }
+
+    void onClose(CCObject* sender) {
+        LevelLeaderboard::onClose(sender);
+
+        override_glow = true;
     }
 };
 
