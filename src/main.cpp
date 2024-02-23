@@ -129,7 +129,6 @@ class $modify(ProfilePage) {
     void onClose(CCObject* sender) {
         ProfilePage::onClose(sender);
 
-        auto running_scene = CCDirector::sharedDirector()->getRunningScene();
         if (m_ownProfile) override_glow = true;
     }
 
@@ -153,7 +152,7 @@ class $modify(SimplePlayer) {
 
         auto game_manager = GameManager::get();
 
-        if (override_glow) {
+        if (override_glow && game_manager->getPlayerGlow()) {
             setGlowOutline(game_manager->colorForIdx(game_manager->getPlayerGlowColor()));
         }
 
