@@ -1,6 +1,7 @@
 #include <Geode/Geode.hpp>
 
 #include <Geode/modify/CharacterColorPage.hpp>
+#include <Geode/modify/CreatorLayer.hpp>
 #include <Geode/modify/GJGarageLayer.hpp>
 #include <Geode/modify/GJItemIcon.hpp>
 #include <Geode/modify/InfoLayer.hpp>
@@ -26,6 +27,14 @@ class $modify(CharacterColorPage) {
 
         garage_layer->onArrow(prev_button);
         garage_layer->onArrow(next_button);
+    }
+};
+
+class $modify(CreatorLayer) {
+    void onTreasureRoom(CCObject* sender) {
+        CreatorLayer::onTreasureRoom(sender);
+
+        override_glow = true;
     }
 };
 
