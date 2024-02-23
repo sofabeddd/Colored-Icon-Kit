@@ -16,7 +16,7 @@
 
 ## v1.0.4
 - Hopefully finally fixed the bug that renders your own glow when it shouldn't.
-- Undid the fix for pressing escape in the icon kit since it broke whenever you tried to select colors mutiple times.
+- Undid the fix for pressing escape in the icon kit since it broke whenever you tried to select colors multiple times.
 
 ## Additional Info
 *please submit any bugs you may find to the issues tab in the github repository or directly to me on discord @sofabeddd, thanks :)*
