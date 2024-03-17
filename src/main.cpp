@@ -13,10 +13,10 @@ class AprilFools {
 public:
     static bool isAprilFools() {
         std::time_t t = std::time(nullptr);
-        std::tm current_time = {};
+        std::tm* current_time = std::localtime(&t);
 
-        if (localtime_s(&current_time, &t) == 0) {
-            return current_time.tm_mon == 3 && current_time.tm_mday == 1;
+        if (current_time != nullptr) {
+            return current_time->tm_mon == 3 && current_time->tm_mday == 1;
         }
 
         return false;

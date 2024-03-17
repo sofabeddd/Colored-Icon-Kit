@@ -17,6 +17,7 @@ Have feedback or encountered a bug? Report it [here](https://github.com/sofabedd
 
 ---
 ## Shameless Promotion
+**Buy Me a Coffee:** [sofabeddd](https://www.buymeacoffee.com/sofabeddd)  
 **Discord:** [sofabeddd](https://discordapp.com/users/560247410522324993)  
 **Geometry Dash:** [sofabeddd](user:7976112)  
 **GitHub:** [sofabeddd](https://github.com/sofabeddd)  
