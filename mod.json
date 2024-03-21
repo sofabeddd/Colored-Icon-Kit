@@ -19,6 +19,7 @@
 	},
 	"gd": {
 		"android": "2.205",
+		"mac": "2.200",
 		"win": "2.204"
 	},
 	"tags": ["Cosmetic", "Customization", "Enhancement"]

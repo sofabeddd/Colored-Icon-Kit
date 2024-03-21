@@ -3,6 +3,8 @@
 ## Developer Announcements
 This is just a quick push to get my April Fools update out. Big changes coming soon in `v2.0.0`, but it's taking a little longer than I thought and index wait times are all over the place. Also, a huge thanks to everyone for **64000** downloads on my mod; I never imagined it would get this popular.
 
+For the Mac compatibility, the Icon Kit does not support color refreshing but other than that the functionality is the same. 
+
 Thanks, sofabeddd
 
 ---
@@ -19,6 +21,7 @@ Have feedback or encountered a bug? Report it [here](https://github.com/sofabedd
   - `Enhancement`
 - Cleaned up markdown files.
 - New mod logo.
+- Quick and dirty Mac compatibility fix.
 
 ## Credits
 **Mod Logo:** [RueOfficial](user:26528871)

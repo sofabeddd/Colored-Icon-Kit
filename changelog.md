@@ -6,6 +6,7 @@
   - `Enhancement`
 - Cleaned up markdown files.
 - New mod logo.
+- Quick and dirty Mac compatibility fix.
 
 ## v1.0.5
 - Fixed bug rendering glow in the icon kit regardless of if you had it enabled or not.
