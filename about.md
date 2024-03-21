@@ -1,18 +1,26 @@
 # Colored Icon Kit
 
+## Developer Announcements
+This is just a quick push to get my April Fools update out. Big changes coming soon in `v2.0.0`, but it's taking a little longer than I thought and index wait times are all over the place. Also, a huge thanks to everyone for **64000** downloads on my mod; I never imagined it would get this popular.
+
+Thanks, sofabeddd
+
+---
 ## Overview
 Colored Icon Kit adds your player colors to icons in the Icon Kit, Shops, Achievements, and more to add a personalized touch to your in-game visuals. This mod also provides settings to allow the user to customize the look of their entire icon kit.
 
 Have feedback or encountered a bug? Report it [here](https://github.com/sofabeddd/Colored-Icon-Kit/issues/new).
 
 ## Latest Changes
-- Added `Cosmetic`, `Customization` and `Enhancement` to the mod tags.
-- Added shameless plugs to my stuff.
-- Added the ability to hide locks in the Icon Kit.
-- Moved `~/about.md` to `~/changelog.md`.
+- Added April Fools.
+- Added new tags.
+  - `Cosmetic`
+  - `Customization`
+  - `Enhancement`
+- Cleaned up markdown files.
+- New mod logo.
 
 ## Credits
-**HideLocks:** [TechStudent10](https://github.com/TechStudent10/HideLocks)  
 **Mod Logo:** [RueOfficial](user:26528871)
 
 ---

@@ -5,12 +5,12 @@
 	"id": "sofabeddd.colored_icon_kit",
 	"name": "Colored Icon Kit",
 	"repository": "https://github.com/sofabeddd/Colored-Icon-Kit",
-	"version": "v2.0.0",
+	"version": "v1.1.0",
 	"dependencies": [
 		{
 			"id": "geode.node-ids",
 			"importance": "required",
-			"version": ">=v1.8.1"
+			"version": ">=v1.5.1"
 		}
 	],
 	"issues": {
@@ -20,48 +20,6 @@
 	"gd": {
 		"android": "2.205",
 		"win": "2.204"
-	},
-	"settings": {
-		"center-icons": {
-			"name": "Center Icons",
-			"description": "Makes the icons on the last pages centered.",
-			"type": "bool",
-			"default": false
-		},
-		"color-locked-icons": {
-			"name": "Color Locked Icons",
-			"description": "Applies coloring to icons you have not unlocked yet.",
-			"type": "bool",
-			"default": false
-		},
-		"hide-locks": {
-			"name": "Hide Locks",
-			"description": "Hides locks in the icon kit.",
-			"type": "bool",
-			"default": false
-		},
-		"locked-icon-detail": {
-			"name": "Locked Icon Detail",
-			"description": "Shows otherwise hidden details on locked icons.",
-			"type": "bool",
-			"default": false
-		},
-		"lock-opacity": {
-			"name": "Lock Opacity",
-			"description": "Sets the opacity of locks in the icon kit.",
-			"type": "int",
-			"default": 200,
-			"min": 0,
-			"max": 255
-		},
-		"locked-icon-opacity": {
-			"name": "Locked Icon Opacity",
-			"description": "Sets the opacity of locked icons in the icon kit.",
-			"type": "int",
-			"default": 120,
-			"min": 0,
-			"max": 255
-		}
 	},
 	"tags": ["Cosmetic", "Customization", "Enhancement"]
 }

@@ -1,15 +1,11 @@
-## v2.0.0
+## v1.1.0
+- Added April Fools.
 - Added new tags.
   - `Cosmetic`
   - `Customization`
   - `Enhancement`
-- Added new settings.
-  - `Center Icons`
-  - `Color Locked Icons`
-  - `Hide Locks`
 - Cleaned up markdown files.
 - New mod logo.
-- Rewrote entire source to clean up code.
 
 ## v1.0.5
 - Fixed bug rendering glow in the icon kit regardless of if you had it enabled or not.
