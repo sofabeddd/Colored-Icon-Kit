@@ -38,6 +38,7 @@ bool isAprilFools() {
 }
 
 class $modify(CharacterColorPage) {
+    #if defined(GEODE_IS_WINDOWS) || defined(GEODE_IS_ANDROID)
     void onClose(CCObject* sender) {
         CharacterColorPage::onClose(sender);
 
@@ -49,6 +50,7 @@ class $modify(CharacterColorPage) {
         garage_layer->onArrow(prev_button);
         garage_layer->onArrow(next_button);
     }
+    #endif
 };
 
 class $modify(CreatorLayer) {
