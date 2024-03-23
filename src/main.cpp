@@ -72,15 +72,11 @@ class $modify(GJGarageLayer) {
 
 class $modify(GJItemIcon) {
     static GJItemIcon* create(UnlockType p0, int p1, cocos2d::ccColor3B p2, cocos2d::ccColor3B p3, bool p4, bool p5, bool p6, cocos2d::ccColor3B p7) {
+        if (p1 == 0) { p1 = 1; } // compat with betterinfo's insistence to load profiles of blocked users
+        if (isAprilFools()) { return GJItemIcon::create(p0, p1, getRandomColor(), getRandomColor(), p4, p5, p6, p7); }
+
         auto game_manager = GameManager::get();
-
-        if (isAprilFools()) {
-            return GJItemIcon::create(p0, p1, getRandomColor(), getRandomColor(), p4, p5, p6, p7);
-        }
-
-        else {
-            return GJItemIcon::create(p0, p1, game_manager->colorForIdx(game_manager->getPlayerColor()), game_manager->colorForIdx(game_manager->getPlayerColor2()), p4, p5, p6, p7);
-        }
+        return GJItemIcon::create(p0, p1, game_manager->colorForIdx(game_manager->getPlayerColor()), game_manager->colorForIdx(game_manager->getPlayerColor2()), p4, p5, p6, p7);
     }
 };
 
