@@ -1,3 +1,6 @@
+## v1.1.1
+- Fixed crash that occurred when viewing blocked profiles with BetterInfo.
+
 ## v1.1.0
 - Added April Fools.
 - Added new tags.

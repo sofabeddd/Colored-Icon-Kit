@@ -5,12 +5,12 @@
 	"id": "sofabeddd.colored_icon_kit",
 	"name": "Colored Icon Kit",
 	"repository": "https://github.com/sofabeddd/Colored-Icon-Kit",
-	"version": "v1.1.0",
+	"version": "v1.1.1",
 	"dependencies": [
 		{
 			"id": "geode.node-ids",
 			"importance": "required",
-			"version": ">=v1.5.1"
+			"version": ">=v1.8.1"
 		}
 	],
 	"issues": {
@@ -21,6 +21,10 @@
 		"android": "2.205",
 		"mac": "2.200",
 		"win": "2.204"
+	},
+	"resources": {
+		"files": ["resources/*.md"],
+		"sprites": ["resources/sprites/*.png"]
 	},
 	"tags": ["Cosmetic", "Customization", "Enhancement"]
 }
