@@ -42,7 +42,6 @@ public:
 
         changelog_popup->m_scene = this;
         changelog_popup->show();
-
         return true;
     }
 
