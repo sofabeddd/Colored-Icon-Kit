@@ -4,18 +4,22 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_OSX_ARCHITECTURES "x86_64")
 set(CMAKE_CXX_VISIBILITY_PRESET hidden)
 
-project(ColoredIconKit VERSION 2.0.0)
+project(ColoredIconKit VERSION 1.0.0)
 
 add_library(${PROJECT_NAME} SHARED
         src/main.cpp
-        src/ColoredIconKit/AprilFools.hpp
-        src/ColoredIconKit/ColorManager.hpp
-        src/ColoredIconKit/ModSettings.hpp
-        src/ColoredIconKit/ColorManager.cpp
-        src/ColoredIconKit/AprilFools.cpp
-        src/ColoredIconKit/ModSettings.cpp
-        src/UI/ChangelogPopup.cpp
-        src/UI/ChangelogPopup.cpp
+        src/modify/CharacterColorPage.cpp
+        src/modify/GJGarageLayer.cpp
+        src/settings/Section.cpp
+        src/settings/Section.hpp
+        src/ui/popups/Changelog.cpp
+        src/ui/popups/Changelog.hpp
+        src/utils/ColorManager.cpp
+        src/utils/ColorManager.hpp
+        src/utils/ModSettings.cpp
+        src/utils/ModSettings.hpp
+        src/utils/Utility.cpp
+        src/utils/Utility.hpp
 )
 
 if (NOT DEFINED ENV{GEODE_SDK})

@@ -1,11 +1,11 @@
 {
 	"description": "Colors all the icons in the garage, shops, achievements, etc. with your player colors.",
 	"developer": "sofabeddd",
-	"geode": "2.0.0-beta.21",
+	"geode": "2.0.0-beta.24",
 	"id": "sofabeddd.colored_icon_kit",
 	"name": "Colored Icon Kit",
 	"repository": "https://github.com/sofabeddd/Colored-Icon-Kit",
-	"version": "v2.0.0",
+	"version": "v1.0.0",
 	"dependencies": [
 		{
 			"id": "geode.node-ids",
@@ -23,8 +23,15 @@
 		"win": "2.204"
 	},
 	"resources": {
-		"files": ["resources/*.md"],
 		"sprites": ["resources/sprites/*.png"]
+	},
+	"settings": {
+		"automatic-updates": {
+			"name": "Automatic Updates",
+			"description": "Automatically download updates for this mod.",
+			"type": "bool",
+			"default": true
+		}
 	},
 	"tags": ["Cosmetic", "Customization", "Enhancement"]
 }

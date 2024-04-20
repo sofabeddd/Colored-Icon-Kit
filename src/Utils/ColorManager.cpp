@@ -1,4 +1,5 @@
 #include "ColorManager.hpp"
+#include "Utility.hpp"
 
 bool ColorManager::getRandomState() {
     std::random_device random_device;

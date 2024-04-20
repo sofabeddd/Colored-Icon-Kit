@@ -6,6 +6,7 @@ using namespace geode::prelude;
 
 class ModSettings {
 public:
+    static bool automaticUpdates();
     static bool centerIcons();
     static bool colorLockedIcons();
     static bool hideIconLocks();

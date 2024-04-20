@@ -1,51 +1,31 @@
+#include <Geode/Geode.hpp>
+#include <Geode/loader/Index.hpp>
 
-#include "UI/ChangelogPopup.hpp"
-
-#include <Geode/modify/CharacterColorPage.hpp>
-#include <Geode/modify/GJGarageLayer.hpp>
+#include "utils/ModSettings.hpp"
+#include "utils/Utility.hpp"
 
 using namespace geode::prelude;
 
-int page_number;
-IconType icon_type;
+$on_mod(Loaded) {
+    if (!Mod::get()->hasAvailableUpdate() || !ModSettings::automaticUpdates()) return;
 
-class $modify(CharacterColorPage) {
-    #ifndef GEODE_IS_MACOS
-    void onClose(CCObject* sender) {
-        CharacterColorPage::onClose(sender);
+    auto index = Index::get();
+    auto mod = index->getItem(Mod::get());
 
-        auto garage_layer = typeinfo_cast<GJGarageLayer*>(CCDirector::sharedDirector()->getRunningScene()->getChildByID("GJGarageLayer"));
-        garage_layer->setupPage(page_number, icon_type);
-    }
-    #endif
-};
+    if (index->canInstall(mod).isOk()) {
+        Notification::create(Mod::get()->getName() + " | Installing Update")->show();
 
-class $modify(GJGarageLayer) {
-public:
-    bool init() {
-        if (!GJGarageLayer::init()) return false;
+        EventListener<ModInstallFilter>(MiniFunction<EventListener<ModInstallFilter>::Callback>([](ModInstallEvent* event) {
+            if (std::holds_alternative<UpdateFinished>(event->status)) {
+                Notification::create(Mod::get()->getName() + " | Update Installed")->show();
+                variables::update_installed = true;
+            }
+        }), ModInstallFilter(Mod::get()->getID()));
 
-        #ifdef GEODE_IS_MACOS
-        if (!Mod::get()->setSavedValue("shown-mac-disclaimer", true)) {
-            auto macos_alert = FLAlertLayer::create(
-                    "Colored Icon Kit",
-                    "You appear to be on <cg>Mac OS</c>, which this mod does <cr>not fully support</c>.\n\nYou can still preview your colors here, but they will not live update when changed; you will have to exit and re-enter the icon kit for those changes to take place.",
-                    "OK"
-            );
-
-            macos_alert->m_scene = this;
-            macos_alert->show();
-        }
-        #endif
-
-        auto changelog_popup = ChangelogPopup::create();
-
-        changelog_popup->m_scene = this;
-        changelog_popup->show();
-        return true;
+        index->install(mod);
     }
 
-    void setupPage(int p0, IconType p1) {
-        GJGarageLayer::setupPage(page_number = p0, icon_type = p1);
+    else {
+        Notification::create(Mod::get()->getName() + " | Update Failed")->show();
     }
-};
+}

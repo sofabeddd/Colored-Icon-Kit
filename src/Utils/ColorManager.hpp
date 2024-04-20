@@ -1,8 +1,5 @@
 #pragma once
-
 #include <random>
-
-#include "AprilFools.hpp"
 
 #include <Geode/Geode.hpp>
 

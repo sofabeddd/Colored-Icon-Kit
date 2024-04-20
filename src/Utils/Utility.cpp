@@ -1,5 +1,6 @@
+#include <ctime>
 
-#include "AprilFools.hpp"
+#include "Utility.hpp"
 
 bool isAprilFools() {
     std::time_t time = std::time(nullptr);
@@ -7,3 +8,7 @@ bool isAprilFools() {
 
     return (local_time->tm_mon == 3 && local_time->tm_mday == 1);
 }
+
+bool variables::update_installed = false;
+int variables::page_number = 0;
+IconType variables::icon_type = IconType::Cube;

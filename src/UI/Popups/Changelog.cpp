@@ -1,20 +1,20 @@
 
-#include "ChangelogPopup.hpp"
+#include "Changelog.hpp"
 
-bool ChangelogPopup::setup() {
+bool Changelog::setup() {
     this->m_noElasticity = true;
 
     auto game_manager = GameManager::sharedState();
 
-    setID("ChangelogPopup");
-    setTitle("Colored Icon Kit | Changelog");
+    setID("Changelog");
+    setTitle(Mod::get()->getName() + " | Changelog");
 
     this->m_title->setPosition(this->m_title->getPosition() - CCPoint { 0.f, 3.f });
     this->m_closeBtn->setPosition(CCPoint { 12.f, this->m_buttonMenu->boundingBox().getMaxY() - 12.f });
 
     auto changelog = MDTextArea::create(getChangelogData(), CCSize { 350.f,  200.f });
     auto scrollbar = Scrollbar::create(changelog->getScrollLayer());
-    auto developer_info = CCLabelBMFont::create("developed by sofabeddd", "bigFont.fnt");
+    auto developer_info = CCLabelBMFont::create(("developed by " + Mod::get()->getDevelopers()[0]).c_str(), "bigFont.fnt");
     auto socials_menu = CCMenu::create();
 
     socials_menu->setAnchorPoint(this->m_buttonMenu->getAnchorPoint());
@@ -55,34 +55,34 @@ bool ChangelogPopup::setup() {
     CCMenuItemSpriteExtra* social_buttons[] = {
             CCMenuItemSpriteExtra::create(
                     buymeacoffee_icon, socials_menu,
-                    menu_selector(ChangelogPopup::onBuyMeACoffee)
+                    menu_selector(Changelog::onBuyMeACoffee)
             ),
             CCMenuItemSpriteExtra::create(
                     discord_icon, socials_menu,
-                    menu_selector(ChangelogPopup::onDiscord)
+                    menu_selector(Changelog::onDiscord)
             ),
             CCMenuItemSpriteExtra::create(
                     geometrydash_icon, socials_menu,
-                    menu_selector(ChangelogPopup::onGeometryDash)
+                    menu_selector(Changelog::onGeometryDash)
             ),
             CCMenuItemSpriteExtra::create(
                     github_icon, socials_menu,
-                    menu_selector(ChangelogPopup::onGitHub)
+                    menu_selector(Changelog::onGitHub)
             ),
             CCMenuItemSpriteExtra::create(
                     youtube_icon, socials_menu,
-                    menu_selector(ChangelogPopup::onYouTube)
+                    menu_selector(Changelog::onYouTube)
             )
     };
 
     socials_menu->setContentSize(CCSize { 200.f, 20.f });
     socials_menu->alignItemsHorizontallyWithPadding(10.f);
 
-    float position = -60.f;
+    float position = -75.f * (button_scale + 0.5f);
 
     for (auto button : social_buttons) {
         socials_menu->addChild(button);
-        button->setPosition(position += 20.f, 0.f);
+        button->setPosition(position += 25.f * (button_scale + 0.5f), 0.f);
     }
 
     socials_menu->updateLayout(true);
@@ -91,12 +91,12 @@ bool ChangelogPopup::setup() {
     return true;
 }
 
-void ChangelogPopup::onClose(CCObject* sender) {
+void Changelog::onClose(CCObject* sender) {
     Popup::onClose(sender);
 }
 
-gd::string ChangelogPopup::getChangelogData() {
-    std::ifstream changelog_file(Mod::get()->getResourcesDir() / "changelog.md");
+gd::string Changelog::getChangelogData() {
+    std::ifstream changelog_file(Mod::get()->getBinaryPath().parent_path() / "changelog.md");
     std::ostringstream latest_changes;
 
     if (changelog_file) {
@@ -104,14 +104,14 @@ gd::string ChangelogPopup::getChangelogData() {
     }
 
     else {
-        latest_changes << "<cr>failed to open changelog file</c>";
+        latest_changes << "## <cr>failed to open changelog file</c>";
     }
 
     return latest_changes.str();
 }
 
-ChangelogPopup* ChangelogPopup::create() {
-    auto ret = new ChangelogPopup;
+Changelog* Changelog::create() {
+    auto ret = new Changelog;
     if (ret->initAnchored(400.f, 300.f)) {
         ret->autorelease();
 
@@ -122,23 +122,23 @@ ChangelogPopup* ChangelogPopup::create() {
     return nullptr;
 }
 
-void ChangelogPopup::onBuyMeACoffee(cocos2d::CCObject*) {
+void Changelog::onBuyMeACoffee(cocos2d::CCObject*) {
     web::openLinkInBrowser("https://www.buymeacoffee.com/sofabeddd");
 }
 
-void ChangelogPopup::onDiscord(cocos2d::CCObject*) {
+void Changelog::onDiscord(cocos2d::CCObject*) {
     web::openLinkInBrowser("https://discordapp.com/users/560247410522324993");
 }
 
-void ChangelogPopup::onGeometryDash(cocos2d::CCObject*) {
+void Changelog::onGeometryDash(cocos2d::CCObject*) {
     auto profile = ProfilePage::create(7976112, false);
     profile->show();
 }
 
-void ChangelogPopup::onGitHub(cocos2d::CCObject*) {
+void Changelog::onGitHub(cocos2d::CCObject*) {
     web::openLinkInBrowser("https://github.com/sofabeddd");
 }
 
-void ChangelogPopup::onYouTube(cocos2d::CCObject*) {
+void Changelog::onYouTube(cocos2d::CCObject*) {
     web::openLinkInBrowser("https://www.youtube.com/@sofabeddd?sub_confirmation=1");
 }

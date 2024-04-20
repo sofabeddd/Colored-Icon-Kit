@@ -8,14 +8,15 @@
 
 using namespace geode::prelude;
 
-class ChangelogPopup : public Popup<> {
+class Changelog : public Popup<> {
+protected:
     bool setup() override;
     void onClose(CCObject* sender) override;
 
     gd::string getChangelogData();
 
 public:
-    static ChangelogPopup* create();
+    static Changelog* create();
 
     void onBuyMeACoffee(CCObject* sender);
     void onDiscord(CCObject* sender);

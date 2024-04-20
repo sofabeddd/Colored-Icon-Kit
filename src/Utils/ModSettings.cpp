@@ -1,5 +1,8 @@
-
 #include "ModSettings.hpp"
+
+bool ModSettings::automaticUpdates() {
+    return Mod::get()->getSettingValue<bool>("automatic-updates");
+}
 
 bool ModSettings::centerIcons() {
     return Mod::get()->getSettingValue<bool>("center-icons");
