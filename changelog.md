@@ -1,12 +1,5 @@
-## v2.0.0
-- Added new settings.
-  - `Center Icons`
-  - `Color Locked Icons`
-  - `Hide Locks`
-  - `Locked Icon Detail`
-  - `Lock Opacity`
-  - `Locked Icon Opacity`
-- Rewrote entire source to clean up code.
+##1.1.1
+- Ported to 2.206 (Thanks to Lumer120)
 
 ## v1.1.0
 - Added April Fools.
